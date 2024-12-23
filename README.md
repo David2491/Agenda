@@ -1,2 +1,5 @@
 # Agenda
-A time scheduling application that lets you know when you should leave, to reach events on time.
+A time scheduling application that lets you know when you should leave, to reach events on time. It uses the Google Maps and Directions API to gather information on travel times, and keeps the use informed on this information, so they can make the appropriate decisions. 
+
+## Installation
+To run this project, Visual Studio 2022 is required. Specficically the .Net Maui UI development workload is required. Once installed this project can be opened in Visual Studio. It is important to supply your own API keys. The file "Agenda/Platforms/Android/AndroidManifest.xml" requires the [Google Maps SDK for Android](https://developers.google.com/maps/documentation/android-sdk?_gl=1*nramr2*_up*MQ..*_ga*MTA0MTg5MjAzMS4xNzM0OTY4OTc2*_ga_NRWSTWS78N*MTczNDk2ODk3Ni4xLjEuMTczNDk2ODk3Ny4wLjAuMA..) API Key and the file "Agenda/SQL Classes/MapsHelper.cs" requires the [Google Directions](https://developers.google.com/maps/documentation/directions?_gl=1*alld8d*_up*MQ..*_ga*MTIxMzgyNTY0OS4xNzM0OTY5MTYy*_ga_NRWSTWS78N*MTczNDk2OTE2Mi4xLjEuMTczNDk2OTE2Mi4wLjAuMA..) API Key. Once this has been completed, the project can be built and run. 
