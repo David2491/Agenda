@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda.SettingsPage">
+
+    <Grid RowDefinitions="100, *" Padding="15">
+        <Label Text="Settings" Grid.Row="0" VerticalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"></Label><!--Page Title-->
+        
+        <ScrollView Grid.Row="1"><!--All Settings options-->
+            <Grid RowDefinitions="100, 100, 100, 100, 100" ColumnDefinitions="*,*">
+                <Label Grid.Row="0" Grid.Column="0" Text="Shown Routes Based on"></Label><!--User chooses route decision making method-->
+                <Picker Grid.Row="0" Grid.Column="1" SelectedIndex="0">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}"><!--Populated with an array of the options-->
+                            <x:String>Shortest Time</x:String>
+                            <x:String>Shortest Distance</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Choose GUI Colours"></Label><!--GUI colours-->
+                <Picker Grid.Row="1" Grid.Column="1" SelectedIndex="0">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}"><!--Populated with an array of the options-->
+                            <x:String>Blue</x:String>
+                            <x:String>Red</x:String>
+                            <x:String>Purple</x:String>
+                            <x:String>Orange</x:String>
+                            <x:String>Green</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Alarm Sound File"></Label><!--Alarm Sound File-->
+                <Label Grid.Row="2" Grid.Column="1" Text="Not Yet Implemented"></Label>
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Notification Sound File"></Label><!--Notification Sound File-->
+                <Label Grid.Row="3" Grid.Column="1" Text="Not Yet Implemented"></Label>
+
+                <Button Grid.Row="4" Grid.ColumnSpan="2" Text="Delete All Events" BackgroundColor="Red" Clicked="ClearTableAndNotifications"></Button>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

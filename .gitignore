@@ -1,0 +1,11 @@
+# Ignore build folders
+bin/
+obj/
+.vs/
+
+# Ignore these file extensions
+*.log
+*.tmp
+*.lock
+*.vsidx
+*.env

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda.AddEventPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="100, *">
+        <Label Grid.Row="0" Text="Add an Event" FontSize="Large" FontAttributes="Bold" Padding="15" VerticalTextAlignment="Center"></Label><!--Page Title-->
+        <ScrollView Grid.Row="1"> <!--All input fields here-->
+            <Grid RowDefinitions="50,50,50,50,50,75,50,100,100" ColumnDefinitions="*,*" Padding="15"  VerticalOptions="FillAndExpand"><!--Change * to something else-->
+                
+                <Label Grid.Row="0" Grid.Column="0" Text="Event Title" VerticalOptions="Center"></Label> <!--Title Entry Fields-->
+                <Entry Grid.Row="0" Grid.Column="1" x:Name="Title"></Entry>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Description" VerticalOptions="Center"></Label><!--Event Description-->
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="Description"></Entry>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Date" VerticalOptions="Center"></Label><!--Date entry row-->
+                <DatePicker Grid.Row="2" Grid.Column="1" x:Name="Date" Format="dd-MM-yyyy"></DatePicker> <!--changed displayed formatting-->
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Start Time" VerticalOptions="Center"></Label><!--Event Start Time-->
+                <TimePicker Grid.Row="3" Grid.Column="1" x:Name="StartTime"></TimePicker>
+
+                <Label Grid.Row="4" Grid.Column="0" Text="End Time" VerticalOptions="Center"></Label><!--Event End Time-->
+                <TimePicker Grid.Row="4" Grid.Column="1" x:Name="EndTime"></TimePicker>
+
+                <Button Grid.Row="5" Grid.ColumnSpan="2" Text="Variable Event" Margin="0,15,0,15" Clicked="SendtoRoutePage"></Button><!--Variable Event Button-->
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Recurring" ></Label><!--Recurring Event Dropdown-->
+                <Picker Grid.Row="6" Grid.Column="1" SelectedIndex="0" x:Name="RecurringDropDown"><!--Assigned a name to the picker-->
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}"><!--Populated with an array of the options-->
+                            <x:String>Never</x:String>
+                            <x:String>Daily</x:String>
+                            <x:String>Weekly</x:String>
+                            <x:String>Monthly</x:String>
+                            <x:String>Annually</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Grid.Row="7" Grid.Column="0" Text="Notification" VerticalTextAlignment="Center"></Label><!--Notification/Alarm Switch-->
+                <Switch Grid.Row="7" Grid.Column="1" x:Name="isAlarm" HorizontalOptions="Start"></Switch>
+                <Label Grid.Row="7" Grid.Column="1" Text="Alarm" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+
+                <Button Grid.Row="8" Grid.Column="0" Text="Cancel" Margin="5" Clicked="Cancel_Clicked" BackgroundColor="Red"></Button><!--Cancel Button-->
+                <Button Grid.Row="8" Grid.Column="1" Text="Add Event" Margin="5" BackgroundColor="Green" Clicked="ValidateEntryData"></Button><!--Add Event Button-->
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Agenda.SchedulePage">
+
+    <Grid Padding="15">
+        <Grid RowDefinitions="100,50,*">
+            <Label Grid.Row="0" Text="Your Schedule" FontSize="Large" FontAttributes="Bold" VerticalOptions="Center"></Label> <!--Page Title-->
+            
+            <Border Grid.Row="1" WidthRequest="150" HorizontalOptions="End" StrokeThickness="2" Stroke="Black"> <!--A border with round corners around the dropdown-->
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5"></RoundRectangle>
+                </Border.StrokeShape>
+                <Picker x:Name="TimeIntervalDropDown" HorizontalOptions="Center" VerticalOptions="Center" SelectedIndexChanged="Reload"><!--The Dropdown for Time Interval Selection on the Schedule Page-->
+                    <Picker.ItemsSource>
+                        <x:Array  Type="{x:Type x:String}">
+                            <x:String>Today</x:String>
+                            <x:String>This week</x:String>
+                            <x:String>This Month</x:String>
+                            <x:String>This Year</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Border>
+
+            <ScrollView Grid.Row="2" VerticalScrollBarVisibility="Never"> <!--Section for events-->
+                <VerticalStackLayout x:Name="EventStackLayout">
+                    <!--Events Will be populated in this Vertical stack layout-->
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+        <Button Text="Add Event" VerticalOptions="End" HorizontalOptions="End" Clicked="AddEventButtonPress"> <!--Add Event Button-->
+        </Button>
+    </Grid>
+
+
+</ContentPage>

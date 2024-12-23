@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="Agenda.Pages.RoutePage"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <Grid RowDefinitions="100,50,50,50,50,200,300,*,100" ColumnDefinitions="*,*" Padding="15">
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Choose Your Route" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+            <!--Page Title-->
+
+            <Label Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Text="Start Location"></Label>
+            <Entry Grid.Row="1" Grid.Column="1" VerticalOptions="Center" x:Name="StartLocation"></Entry>
+
+            <Label Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Text="End location"></Label>
+            <Entry Grid.Row="2" Grid.Column="1" VerticalOptions="Center" x:Name="EndLocation"></Entry>
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Mode of Transportation" VerticalOptions="Center"></Label>
+            <Picker Grid.Row="3" Grid.Column="1" x:Name="TransitMode">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Driving</x:String>
+                        <x:String>Walking</x:String>
+                        <x:String>Bicycling</x:String>
+                        <x:String>Transit</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Clicked="Submit" Text="Submit" Margin="5"></Button>
+
+            <StackLayout Grid.Row="5" Grid.ColumnSpan="2" x:Name="StackLayout">
+            </StackLayout>
+
+            <maps:Map Grid.Row="6" Grid.ColumnSpan="2" x:Name="Map" MapType="Street" IsShowingUser="true"></maps:Map>
+
+            <StackLayout Grid.Row="7" Grid.ColumnSpan="2" x:Name="InstructionsBox"></StackLayout>
+
+            <Button Grid.Row="8" Grid.Column="0" Text="Cancel" BackgroundColor="Red" Margin="5" Clicked="Cancel_Clicked"></Button>
+            <!--Cancel Button-->
+            <Button Grid.Row="8" Grid.Column="1" Text="Choose Route" BackgroundColor="Green" Margin="5" Clicked="ChooseRouteClicked"></Button>
+            <!--Choose Route Button-->
+        </Grid>
+    </ScrollView>
+</ContentPage>
